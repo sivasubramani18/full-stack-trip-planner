@@ -27,7 +27,7 @@ export default function CreateAccount() {
       });
 
       const data = await response.json();
-      setMessage(data.message); // show response from backend
+      setMessage(data.message);
       console.log("Server Response:", data);
     } catch (error) {
       console.error("Error:", error);
@@ -72,10 +72,8 @@ export default function CreateAccount() {
           </button>
         </form>
 
-        {/* Show backend message */}
         {message && <p style={styles.message}>{message}</p>}
 
-        {/* Sign in option */}
         <p style={styles.signinText}>
           Already have an account?{" "}
           <Link to="/login" style={styles.link}>Sign in</Link>
@@ -85,7 +83,7 @@ export default function CreateAccount() {
   );
 }
 
-// Inline CSS styles
+// Inline CSS (matching Login page)
 const styles = {
   container: {
     display: "flex",
@@ -106,6 +104,8 @@ const styles = {
   title: {
     marginBottom: "20px",
     color: "#333",
+    fontSize: "22px",
+    fontWeight: "bold",
   },
   form: {
     display: "flex",
@@ -117,6 +117,8 @@ const styles = {
     borderRadius: "6px",
     border: "1px solid #ccc",
     fontSize: "14px",
+    outline: "none",
+    transition: "border 0.3s ease",
   },
   button: {
     padding: "12px",
@@ -128,6 +130,9 @@ const styles = {
     fontWeight: "bold",
     cursor: "pointer",
     transition: "background 0.3s ease",
+  },
+  buttonHover: {
+    backgroundColor: "#5a67d8",
   },
   signinText: {
     marginTop: "15px",

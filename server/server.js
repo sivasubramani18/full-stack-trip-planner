@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -8,12 +7,10 @@ import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 const app = express();
 
-// Connect to database
 connectDb();
 
-// Middleware
 app.use(cors({
-  origin: "http://localhost:3000", // React app URL
+  origin: "http://localhost:3000", 
   credentials: true
 }));
 
@@ -22,7 +19,6 @@ app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
   next();
 });
-// Routes - this creates /api/register and /api/login
 app.use("/api/users", userRoutes);
 
 const PORT = 5001;
